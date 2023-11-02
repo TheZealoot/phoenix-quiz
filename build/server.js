@@ -3,14 +3,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
 const dotenv_1 = __importDefault(require("dotenv"));
-dotenv_1.default.config();
-const app = (0, express_1.default)();
-const port = process.env.PORT || 3000;
-app.get('/', (req, res) => {
-    res.send('Hello Phoenix Team!');
-});
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
+const mongoose_1 = __importDefault(require("mongoose"));
+const app_1 = __importDefault(require("./app"));
+dotenv_1.default.config({ path: `${__dirname}/config.env` });
+// @ts-ignore
+const Db = process.env.DATABASE.replace('<PASSWORD>', process.env.DB_PASSWORD);
+mongoose_1.default
+    .connect(Db)
+    .then(() => { console.log('DB connection successful'); });
+const PORT = process.env.PORT ? parseInt(process.env.PORT) : 8081;
+app_1.default.listen(PORT, () => {
+    console.log(`App listening on port ${PORT}`);
 });

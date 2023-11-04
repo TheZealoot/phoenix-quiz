@@ -19,6 +19,7 @@
   },
   "include": [
     "src/**/*.ts",
+    "server.ts",
     "./package.json"
   ],
   "exclude": [

@@ -5,7 +5,8 @@
   "main": "server.ts",
   "scripts": {
     "build": "tsc",
-    "dev": "concurrently \"tsc --watch\" \"nodemon -q src/server.ts\"",
+    "postbuild": "mv node_modules ./dist",
+    "dev": "concurrently \"tsc --watch\" \"nodemon -q server.ts\"",
     "start": "node server.js"
   },
   "keywords": [],

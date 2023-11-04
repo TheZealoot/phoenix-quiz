@@ -6,7 +6,7 @@ dotenv.config()
 
 // @ts-ignore
 const Db = process.env.DATABASE.replace('<PASSWORD>', process.env.DB_PASSWORD)
-const PORT = process.env.PORT ? parseInt(process.env.PORT) : 8081
+const PORT = process.env.PORT ? parseInt(process.env.PORT) : 3000
 
 mongoose
     .connect(Db)

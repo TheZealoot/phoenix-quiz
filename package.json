@@ -2,10 +2,11 @@
   "name": "phoenix-quiz",
   "version": "1.0.0",
   "description": "",
+  "main": "server.js",
   "scripts": {
     "build": "tsc",
     "dev": "concurrently \\\\\\\"tsc --watch\\\\\\\" \\\\\\\"nodemon -q src/server.ts",
-    "start": "ts-node dist/server"
+    "start": "ts-node src/server.ts"
   },
   "keywords": [],
   "author": "",

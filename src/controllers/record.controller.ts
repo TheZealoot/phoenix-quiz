@@ -23,6 +23,6 @@ export const createRecord = async (request: Request, response: Response) => {
             }
         });
     } catch (e) {
-        response.status(404).send()
+        response.status(500).send()
     }
 }

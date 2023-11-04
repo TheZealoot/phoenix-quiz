@@ -12,9 +12,9 @@ export interface IRecord {
 export type RecordType = Model<IRecord>
 
 const recordSchema = new Schema<IRecord, RecordType>({
-    fullName: {type: String, required: true},
+    fullName: {type: String, required: false},
     email: {type: String, required: true},
-    totalPoints: {type: Number, required: true},
+    totalPoints: {type: Number, required: false},
     feedback: {type: String, required: false},
     timestamp: {type: Date, default: getLocalTimestamp}
 })

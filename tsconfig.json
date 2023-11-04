@@ -8,7 +8,7 @@
     "module": "commonjs",
     "resolveJsonModule": true,
     "outDir": "./dist",
-    "baseUrl": "./src",
+    // "baseUrl": "./src",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     /* Type Checking */

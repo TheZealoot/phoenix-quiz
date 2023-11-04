@@ -1,4 +1,4 @@
-import {IQuestion} from "./models/question";
+import {QuestionDocType} from "./models/question";
 
 export const getLocalTimestamp = () => {
     const timestampUTC = Date.now();
@@ -25,27 +25,27 @@ export const shuffleArray = <T>(array: T[]) => {
     return array;
 }
 
-export const getQuestionsByDifficulty = (questions: IQuestion[], easy: number, medium: number, hard: number) => {
+export const getQuestionsByDifficulty = (questions: QuestionDocType[], easy: number, medium: number, hard: number) => {
     const easyQuestions =
         shuffleArray(questions.filter((q) => q.questionPoints === 200))
 
-    const mediumQuestions = questions
-    shuffleArray(questions.filter((q) => q.questionPoints === 400))
+    const mediumQuestions =
+        shuffleArray(questions.filter((q) => q.questionPoints === 400))
 
-    const hardQuestions = questions
-    shuffleArray(questions.filter((q) => q.questionPoints === 800))
+    const hardQuestions =
+        shuffleArray(questions.filter((q) => q.questionPoints === 800))
 
     return [
         ...easyQuestions.slice(0, easy),
         ...mediumQuestions.slice(0, medium),
         ...hardQuestions.slice(0, hard)
-    ]
+    ] as QuestionDocType[]
 }
 
-export const getQuestionsByCategory = (questions: IQuestion[], category: string) =>
+export const getQuestionsByCategory = (questions: QuestionDocType[], category: string) =>
     questions.filter((q) => q.questionCategory === category)
 
-export const getQuestions = (questions: IQuestion[]) => {
+export const getQuestions = (questions: QuestionDocType[]): QuestionDocType[] => {
     const frontQuestions = getQuestionsByCategory(questions, 'FRONTEND')
     const backQuestions = getQuestionsByCategory(questions, 'BACKEND')
 
@@ -55,12 +55,5 @@ export const getQuestions = (questions: IQuestion[]) => {
     ])
 }
 
-export const shuffleAnswers = (questions: IQuestion[]) =>
-    questions.map<IQuestion>((q) => {
-        const answers = shuffleArray(q.questionAnswers)
-
-        return {
-            ...q,
-            questionAnswers: answers
-        }
-    })
+export const shuffleAnswers = (questions: QuestionDocType[]) =>
+    questions.forEach((q) => shuffleArray(q.questionAnswers))

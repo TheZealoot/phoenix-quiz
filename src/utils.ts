@@ -47,7 +47,9 @@ export const getQuestionsByCategory = (questions: QuestionDocType[], category: s
 
 export const getQuestions = (questions: QuestionDocType[]): QuestionDocType[] => {
     const frontQuestions = getQuestionsByCategory(questions, 'FRONTEND')
+    console.log('Front questions: ' + frontQuestions.length)
     const backQuestions = getQuestionsByCategory(questions, 'BACKEND')
+    console.log('Back questions: ' + backQuestions.length)
 
     return shuffleArray([
         ...getQuestionsByDifficulty(frontQuestions, 2, 4, 2),

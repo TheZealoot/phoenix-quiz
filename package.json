@@ -2,7 +2,7 @@
   "name": "phoenix-quiz",
   "version": "1.0.0",
   "description": "",
-  "main": "src/server.ts",
+  "main": "src/server.js",
   "scripts": {
     "build": "tsc",
     "dev": "concurrently \\\\\\\"tsc --watch\\\\\\\" \\\\\\\"nodemon -q src/server.ts",

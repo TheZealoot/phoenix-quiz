@@ -14,7 +14,6 @@ export const getAllRecords = async (request: Request, response: Response) => {
 
 export const createRecord = async (request: Request, response: Response) => {
     try {
-        console.log("DEJAN")
         const record = await Record.findOneAndUpdate({email: request.body.email}, request.body, {
             new: true,
             upsert: true // Make this update into an upsert

@@ -28,15 +28,12 @@ export const shuffleArray = <T>(array: T[]) => {
 export const getQuestionsByDifficulty = (questions: QuestionDocType[], easy: number, medium: number, hard: number) => {
     const easyQuestions =
         shuffleArray(questions.filter((q) => q.questionPoints === 200))
-    console.log('Easy questions: ' + easyQuestions.length)
 
     const mediumQuestions =
         shuffleArray(questions.filter((q) => q.questionPoints === 400))
-    console.log('Medium questions: ' + mediumQuestions.length)
 
     const hardQuestions =
         shuffleArray(questions.filter((q) => q.questionPoints === 800))
-    console.log('Hard questions: ' + hardQuestions.length)
 
     return [
         ...easyQuestions.slice(0, easy),
@@ -50,9 +47,7 @@ export const getQuestionsByCategory = (questions: QuestionDocType[], category: s
 
 export const getQuestions = (questions: QuestionDocType[]): QuestionDocType[] => {
     const frontQuestions = getQuestionsByCategory(questions, 'FRONTEND')
-    console.log('Front questions: ' + frontQuestions.length)
     const backQuestions = getQuestionsByCategory(questions, 'BACKEND')
-    console.log('Back questions: ' + backQuestions.length)
 
     return shuffleArray([
         ...getQuestionsByDifficulty(frontQuestions, 2, 4, 2),

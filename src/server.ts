@@ -12,6 +12,7 @@ mongoose
 
 
 const PORT = process.env.PORT ? parseInt(process.env.PORT) : 3000
+
 app.listen(PORT, () => {
     console.log(`App listening on port ${PORT}`)
 })

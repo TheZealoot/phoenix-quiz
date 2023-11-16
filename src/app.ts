@@ -13,9 +13,7 @@ app.use(express.urlencoded({extended: true}))
 app.use('/api/v1/questions', questionRouter)
 app.use('/api/v1/records', recordRouter)
 
-app.get('/', cors({
-    origin: 'https://phoenix-quizz.vercel.app'
-}), (request: Request, response: Response) => {
+app.get('/', (_request: Request, response: Response) => {
     response.status(200).send({
         message: 'Phoenix Quiz is working!'
     })

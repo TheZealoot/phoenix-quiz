@@ -18,13 +18,5 @@ mongoose
     })
     .catch(err => {
         console.error(err)
-
-        const errorMessage = 'Failed to connect to the database';
-
-        app.use((_request, response) => {
-            response.status(500).send({
-                error: errorMessage,
-            });
-        });
         return false
     })
